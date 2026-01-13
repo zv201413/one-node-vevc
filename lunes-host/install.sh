@@ -5,8 +5,8 @@ PORT="${PORT:-10008}"
 UUID="${UUID:-753fb4dd-5821-4aa5-ba88-a3c10f22af1d}"
 HY2_PASSWORD="${HY2_PASSWORD:lunemm123}"
 
-curl -sSL -o app.js https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/app.js
-curl -sSL -o package.json https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/package.json
+curl -sSL -o app.js https://raw.githubusercontent.com/zv201413/one-node-vevc/refs/heads/main/lunes-host/app.js
+curl -sSL -o package.json https://raw.githubusercontent.com/zv201413/one-node-vevc/refs/heads/main/lunes-host/package.json
 
 mkdir -p /home/container/xy
 cd /home/container/xy
