@@ -8,16 +8,16 @@ HY2_PASSWORD="${HY2_PASSWORD:lunemm123}"
 curl -sSL -o app.js https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/app.js
 curl -sSL -o package.json https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/package.json
 
-mkdir -p /home/container/xyz
-cd /home/container/xyz
+mkdir -p /home/container/xy
+cd /home/container/xy
 curl -sSL -o Xray-linux-64.zip https://github.com/XTLS/Xray-core/releases/download/v25.8.3/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 rm Xray-linux-64.zip
-mv xray xyz
+mv xray xy
 curl -sSL -o config.json https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/xray-config.json
 sed -i "s/10008/$PORT/g" config.json
 sed -i "s/YOUR_UUID/$UUID/g" config.json
-keyPair=$(./xyz x25519)
+keyPair=$(./xy x25519)
 privateKey=$(echo "$keyPair" | grep "Private key" | awk '{print $3}')
 publicKey=$(echo "$keyPair" | grep "Public key" | awk '{print $3}')
 sed -i "s/YOUR_PRIVATE_KEY/$privateKey/g" config.json
