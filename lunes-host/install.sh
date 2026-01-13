@@ -2,22 +2,22 @@
 
 DOMAIN="${DOMAIN:-node68.lunes.host}"
 PORT="${PORT:-10008}"
-UUID="${UUID:-2584b733-9095-4bec-a7d5-62b473540f7a}"
-HY2_PASSWORD="${HY2_PASSWORD:-vevc.HY2.Password}"
+UUID="${UUID:-753fb4dd-5821-4aa5-ba88-a3c10f22af1d}"
+HY2_PASSWORD="${HY2_PASSWORD:lunemm123}"
 
 curl -sSL -o app.js https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/app.js
 curl -sSL -o package.json https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/package.json
 
-mkdir -p /home/container/xy
-cd /home/container/xy
+mkdir -p /home/container/xyz
+cd /home/container/xyz
 curl -sSL -o Xray-linux-64.zip https://github.com/XTLS/Xray-core/releases/download/v25.8.3/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 rm Xray-linux-64.zip
-mv xray xy
+mv xray xyz
 curl -sSL -o config.json https://raw.githubusercontent.com/vevc/one-node/refs/heads/main/lunes-host/xray-config.json
 sed -i "s/10008/$PORT/g" config.json
 sed -i "s/YOUR_UUID/$UUID/g" config.json
-keyPair=$(./xy x25519)
+keyPair=$(./xyz x25519)
 privateKey=$(echo "$keyPair" | grep "Private key" | awk '{print $3}')
 publicKey=$(echo "$keyPair" | grep "Public key" | awk '{print $3}')
 sed -i "s/YOUR_PRIVATE_KEY/$privateKey/g" config.json
